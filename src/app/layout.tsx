@@ -1,0 +1,30 @@
+import type { Metadata } from "next";
+import "./globals.css";
+
+export const metadata: Metadata = {
+  title: "Aetherys — Digital Agency | AI Systems, Full Stack & Growth",
+  description: "Aetherys is a futuristic digital agency specializing in Full Stack Development, AI Systems & Integration, Automation & AI Agents, and Digital Growth Engineering. We build scalable digital systems, not just websites.",
+  keywords: ["digital agency", "AI integration", "full stack development", "automation", "AI agents", "SaaS development", "digital growth"],
+  openGraph: {
+    title: "Aetherys — Digital Agency",
+    description: "We build scalable digital systems, not just websites.",
+    type: "website",
+  },
+};
+
+export default function RootLayout({
+  children,
+}: Readonly<{
+  children: React.ReactNode;
+}>) {
+  return (
+    <html lang="en">
+      <head>
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
+        <meta name="theme-color" content="#0A0A0A" />
+      </head>
+      <body>{children}</body>
+    </html>
+  );
+}
