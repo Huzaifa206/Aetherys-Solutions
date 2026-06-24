@@ -1,4 +1,4 @@
-﻿.contact {
+.contact {
   position: relative;
   padding: 8rem 0;
   overflow: hidden;
@@ -35,8 +35,8 @@
   position: relative;
   z-index: 2;
   display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 8rem;
+  grid-template-columns: 1fr minmax(420px, 480px);
+  gap: 5rem;
   align-items: center;
 }
 
@@ -219,6 +219,8 @@
   position: relative;
   background: var(--black-2);
   border: 1px solid rgba(245, 245, 245, 0.08);
+  min-width: 380px;
+  width: 100%;
 }
 
 .formFrame {
@@ -419,6 +421,16 @@
   animation: spin-slow 0.6s linear infinite;
 }
 
+.errorMsg {
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  color: var(--neon-red);
+  border: 1px solid rgba(255, 61, 0, 0.25);
+  background: rgba(255, 61, 0, 0.05);
+  padding: 0.75rem 1rem;
+  line-height: 1.6;
+}
+
 /* ═══ SUCCESS STATE ═══ */
 .successState {
   padding: 4rem 2.5rem;
@@ -461,6 +473,15 @@
   width: 60px;
   height: 2px;
   background: linear-gradient(90deg, var(--neon-red), var(--cyan));
+}
+
+@media (max-width: 1200px) {
+  .container {
+    grid-template-columns: 1fr;
+    gap: 4rem;
+  }
+  .formWrap { min-width: unset; }
+  .contact { padding: 6rem 0; }
 }
 
 @media (max-width: 1024px) {

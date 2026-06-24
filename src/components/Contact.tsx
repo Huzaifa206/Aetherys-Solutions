@@ -1,13 +1,23 @@
 'use client';
 
 import { useEffect, useRef, useState } from 'react';
+import emailjs from '@emailjs/browser';
 import styles from './Contact.module.css';
+
+const EMAILJS_SERVICE_ID  = 'service_524qpu8';
+const EMAILJS_TEMPLATE_ID = 'template_0nmxvn4';
+const EMAILJS_PUBLIC_KEY  = 'ze1dzhlrrqV0ayX7U';
 
 export default function Contact() {
   const sectionRef = useRef<HTMLElement>(null);
   const [formState, setFormState] = useState({ name: '', email: '', message: '' });
   const [sending, setSending] = useState(false);
   const [sent, setSent] = useState(false);
+  const [error, setError] = useState('');
+
+  useEffect(() => {
+    emailjs.init(EMAILJS_PUBLIC_KEY);
+  }, []);
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -26,10 +36,27 @@ export default function Contact() {
     return () => observer.disconnect();
   }, []);
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setSending(true);
-    setTimeout(() => { setSending(false); setSent(true); }, 2000);
+    setError('');
+    try {
+      await emailjs.send(
+        EMAILJS_SERVICE_ID,
+        EMAILJS_TEMPLATE_ID,
+        {
+          name: formState.name,
+          email: formState.email,
+          message: formState.message,
+        }
+      );
+      setSent(true);
+    } catch (err) {
+      console.error('EmailJS error:', err);
+      setError('Something went wrong. Please email us directly at hello@aetherys.io');
+    } finally {
+      setSending(false);
+    }
   };
 
   return (
@@ -160,6 +187,11 @@ export default function Contact() {
                 </span>
                 {sending && <div className={styles.submitLoader} />}
               </button>
+
+              {/* Error */}
+              {error && (
+                <p className={styles.errorMsg}>{error}</p>
+              )}
             </form>
           ) : (
             <div className={styles.successState}>
