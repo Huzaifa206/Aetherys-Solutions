@@ -83,7 +83,9 @@ export default function Navbar() {
         <button
           className={`${styles.hamburger} ${menuOpen ? styles.open : ''}`}
           onClick={() => setMenuOpen(!menuOpen)}
+          onTouchEnd={(e) => { e.preventDefault(); setMenuOpen(m => !m); }}
           aria-label="Toggle menu"
+          style={{ cursor: 'pointer', touchAction: 'manipulation' }}
         >
           <span /><span /><span />
         </button>
@@ -92,11 +94,20 @@ export default function Navbar() {
       {/* Mobile Menu */}
       <div className={`${styles.mobileMenu} ${menuOpen ? styles.mobileOpen : ''}`}>
         {navLinks.map((link) => (
-          <button key={link.label} className={styles.mobileLink} onClick={() => handleNav(link.href)}>
+          <button
+            key={link.label}
+            className={styles.mobileLink}
+            onClick={() => handleNav(link.href)}
+            style={{ cursor: 'pointer', touchAction: 'manipulation' }}
+          >
             {link.label}
           </button>
         ))}
-        <button className={styles.mobileCta} onClick={() => handleNav('#contact')}>
+        <button
+          className={styles.mobileCta}
+          onClick={() => handleNav('#contact')}
+          style={{ cursor: 'pointer', touchAction: 'manipulation' }}
+        >
           Start a Project →
         </button>
       </div>

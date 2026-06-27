@@ -58,6 +58,7 @@
 html {
   scroll-behavior: smooth;
   overflow-x: hidden;
+  max-width: 100%;
 }
 
 body {
@@ -67,6 +68,7 @@ body {
   font-size: 16px;
   line-height: 1.6;
   overflow-x: hidden;
+  max-width: 100%;
   cursor: none;
 }
 
@@ -462,11 +464,17 @@ img {
   .cursor-ring {
     display: none;
   }
-  /* Ensure nothing overflows horizontally */
-  *, *::before, *::after {
-    max-width: 100%;
+  /* Fix iOS Safari tap events — cursor:none on body blocks clicks */
+  * {
+    cursor: auto;
   }
-  img, video, svg {
+  button, a, label, select, input, textarea, [role="button"] {
+    cursor: pointer !important;
+    -webkit-tap-highlight-color: transparent;
+    touch-action: manipulation;
+  }
+  /* Prevent horizontal scroll from images/media */
+  img, video, canvas, iframe, svg {
     max-width: 100%;
     height: auto;
   }
@@ -483,11 +491,5 @@ img {
   }
   .section {
     padding: 4rem 0;
-  }
-  /* Restore cursor and touch for all clickable elements on mobile */
-  button, a, [role="button"] {
-    cursor: pointer !important;
-    -webkit-tap-highlight-color: transparent;
-    touch-action: manipulation;
   }
 }
