@@ -1,4 +1,4 @@
-﻿.showcase {
+.showcase {
   position: relative;
   padding: 8rem 0;
   overflow: hidden;
@@ -290,4 +290,12 @@
   .network { height: 240px; }
   .nodeName { font-size: 0.4rem; }
   .nodeSub { display: none; }
+}
+
+@media (max-width: 480px) {
+  .container { padding: 0 1rem; }
+  .metrics { grid-template-columns: 1fr 1fr; }
+  .metric { padding: 1.5rem 1rem; }
+  .metricValue { font-size: 1.8rem; }
+  .title { font-size: clamp(1.6rem, 6vw, 2.5rem); }
 }
