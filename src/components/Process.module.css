@@ -1,4 +1,4 @@
-﻿.process {
+.process {
   position: relative;
   padding: 8rem 0;
   overflow: hidden;
@@ -326,4 +326,13 @@
   .container { padding: 0 1.5rem; }
   .process { padding: 5rem 0; }
   .detail { padding: 1.5rem; }
+}
+
+@media (max-width: 480px) {
+  .container { padding: 0 1rem; }
+  .process { padding: 3.5rem 0; }
+  .title { font-size: clamp(2.5rem, 10vw, 4rem); }
+  .detail { padding: 1.25rem; }
+  .stepItem { padding: 1.25rem 1rem; gap: 1rem; }
+  .stepActive { padding-left: 1.75rem; }
 }

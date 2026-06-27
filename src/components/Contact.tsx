@@ -53,7 +53,7 @@ export default function Contact() {
       setSent(true);
     } catch (err) {
       console.error('EmailJS error:', err);
-      setError('Something went wrong. Please email us directly at hello@aetherys.io');
+      setError('Something went wrong. Please email us directly at aetheryssolutions@gmail.com');
     } finally {
       setSending(false);
     }
@@ -84,9 +84,9 @@ export default function Contact() {
 
           {/* Contact info */}
           <div className={`${styles.contactInfo} reveal delay-3`}>
-            <a href="mailto:hello@aetherys.io" className={styles.emailLink}>
+            <a href="mailto:aetheryssolutions@gmail.com" className={styles.emailLink}>
               <span className={styles.emailIcon}>✉</span>
-              hello@aetherys.io
+              aetheryssolutions@gmail.com
               <span className={styles.emailArrow}>→</span>
             </a>
 

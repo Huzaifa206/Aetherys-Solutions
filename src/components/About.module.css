@@ -1,4 +1,4 @@
-﻿.about {
+.about {
   position: relative;
   padding: 10rem 0 6rem;
   overflow: hidden;
@@ -239,4 +239,13 @@
   .pillars { grid-template-columns: 1fr; }
   .pillar { border-right: none; border-bottom: 1px solid rgba(245, 245, 245, 0.08); }
   .pillar:last-child { border-bottom: none; }
+}
+
+@media (max-width: 480px) {
+  .container { padding: 0 1rem; }
+  .about { padding: 4rem 0 3rem; }
+  .statementText {
+    font-size: clamp(1.8rem, 8vw, 2.5rem);
+  }
+  .pillar { padding: 1.5rem; }
 }

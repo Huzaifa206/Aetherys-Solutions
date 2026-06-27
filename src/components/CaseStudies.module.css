@@ -1,4 +1,4 @@
-﻿.caseStudies {
+.caseStudies {
   position: relative;
   padding: 8rem 0;
   overflow: hidden;
@@ -467,4 +467,15 @@
   .grid { grid-template-columns: 1fr; }
   .container { padding: 0 1.5rem; }
   .caseStudies { padding: 5rem 0; }
+}
+
+@media (max-width: 480px) {
+  .container { padding: 0 1rem; }
+  .caseStudies { padding: 3.5rem 0; }
+  .header { margin-bottom: 2.5rem; }
+  .cardContent { padding: 1.25rem; }
+  .cardTop { padding: 1rem 1.25rem; }
+  .metrics { gap: 1.25rem; }
+  .metricVal { font-size: 1.2rem; }
+  .cardTitle { font-size: 1.2rem; }
 }

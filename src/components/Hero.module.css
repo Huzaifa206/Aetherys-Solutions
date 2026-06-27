@@ -566,3 +566,65 @@
     display: none;
   }
 }
+
+@media (max-width: 480px) {
+  .content {
+    padding: 0 1rem;
+    padding-top: 5rem;
+  }
+
+  .headline {
+    max-width: 100%;
+    line-height: 1;
+  }
+
+  .headlineTop,
+  .headlineBot {
+    font-size: clamp(2rem, 10vw, 2.8rem);
+  }
+
+  .headlineAccent {
+    font-size: clamp(2rem, 10vw, 2.8rem);
+  }
+
+  .subtext {
+    font-size: 0.8rem;
+  }
+
+  .ctas {
+    flex-direction: column;
+    align-items: stretch;
+    width: 100%;
+    gap: 0.75rem;
+  }
+
+  .ctaPrimary,
+  .ctaSecondary {
+    width: 100%;
+    justify-content: center;
+    padding: 0.9rem 1.5rem;
+  }
+
+  .stats {
+    flex-wrap: wrap;
+    gap: 1rem;
+  }
+
+  .statNum {
+    font-size: 1.2rem;
+  }
+
+  .cornerTL,
+  .cornerBR {
+    display: none;
+  }
+
+  .scrollHint {
+    display: none;
+  }
+
+  .orb1, .orb2 {
+    width: 200px;
+    height: 200px;
+  }
+}

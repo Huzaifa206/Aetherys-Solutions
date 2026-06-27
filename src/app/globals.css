@@ -462,4 +462,32 @@ img {
   .cursor-ring {
     display: none;
   }
+  /* Ensure nothing overflows horizontally */
+  *, *::before, *::after {
+    max-width: 100%;
+  }
+  img, video, svg {
+    max-width: 100%;
+    height: auto;
+  }
+}
+
+@media (max-width: 480px) {
+  :root {
+    --space-lg: 1rem;
+    --space-md: 1rem;
+    --space-xl: 4rem;
+  }
+  .container {
+    padding: 0 1rem;
+  }
+  .section {
+    padding: 4rem 0;
+  }
+  /* Restore cursor and touch for all clickable elements on mobile */
+  button, a, [role="button"] {
+    cursor: pointer !important;
+    -webkit-tap-highlight-color: transparent;
+    touch-action: manipulation;
+  }
 }

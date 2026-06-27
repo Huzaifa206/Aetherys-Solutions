@@ -278,3 +278,8 @@
   .cardDesc { max-height: 200px; opacity: 1; margin-top: 0.5rem; }
   .cardTags { max-height: 100px; opacity: 1; margin-top: 0.5rem; }
 }
+
+@media (max-width: 480px) {
+  .container { padding: 0 1rem; }
+  .services { padding: 3.5rem 0; }
+}

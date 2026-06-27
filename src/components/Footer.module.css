@@ -1,4 +1,4 @@
-﻿.footer {
+.footer {
   position: relative;
   background: var(--black-2);
   border-top: 1px solid rgba(245, 245, 245, 0.06);
@@ -296,4 +296,19 @@
     gap: 1rem;
   }
   .bgText { font-size: 8rem; }
+}
+
+@media (max-width: 480px) {
+  .container { padding: 0 1rem; }
+  .top {
+    grid-template-columns: 1fr;
+    padding: 2.5rem 0 2rem;
+    gap: 2rem;
+  }
+  .brand { grid-column: unset; }
+  .ctaCol { grid-column: unset; }
+  .bgText { font-size: 5rem; }
+  .link { cursor: pointer; }
+  .cta { cursor: pointer; }
+  .backTop { cursor: pointer; }
 }
