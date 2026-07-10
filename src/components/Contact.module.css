@@ -151,8 +151,17 @@
 }
 
 .socialIcon {
-  font-size: 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 18px;
+  height: 18px;
   color: var(--white-dim);
+  transition: color 0.3s;
+}
+
+.social:hover .socialIcon {
+  color: var(--white);
 }
 
 .socialLabel {
