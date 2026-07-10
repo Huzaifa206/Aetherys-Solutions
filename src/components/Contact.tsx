@@ -172,7 +172,7 @@ export default function Contact() {
                 <textarea
                   value={formState.message}
                   onChange={e => setFormState(p => ({ ...p, message: e.target.value }))}
-                  placeholder="Describe your vision, goals, and budget (e.g. $5k–$15k) — we'll take it from here."
+                  placeholder="Describe your vision, goals, and budget (e.g. PKR 15k–30k) — we'll take it from here."
                   className={styles.textarea}
                   rows={5}
                   required
