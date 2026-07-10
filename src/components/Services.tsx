@@ -1,6 +1,6 @@
 'use client';
 
-import { useEffect, useRef, useState } from 'react';
+import { useEffect, useRef } from 'react';
 import styles from './Services.module.css';
 
 const services = [
@@ -48,7 +48,6 @@ const services = [
 
 export default function Services() {
   const sectionRef = useRef<HTMLElement>(null);
-  const [activeService, setActiveService] = useState<number | null>(null);
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -83,29 +82,32 @@ export default function Services() {
           </p>
         </div>
 
-        {/* Asymmetric services grid */}
+        {/* Services grid */}
         <div className={styles.grid}>
           {services.map((service, i) => (
             <div
               key={service.num}
-              className={`${styles.card} ${styles[`card_${service.size}`]} ${styles[`card_${service.color}`]} ${activeService === i ? styles.cardActive : ''} reveal delay-${i + 1}`}
-              onMouseEnter={() => setActiveService(i)}
-              onMouseLeave={() => setActiveService(null)}
+              className={`${styles.card} ${styles[`card_${service.size}`]} ${styles[`card_${service.color}`]} reveal delay-${i + 1}`}
             >
-              {/* Card number */}
+              {/* Number */}
               <span className={styles.cardNum}>{service.num}</span>
 
-              {/* Hover gradient */}
+              {/* Ambient glow */}
               <div className={styles.cardGlow} />
 
               {/* Content */}
               <div className={styles.cardContent}>
+                {/* Color accent dot */}
+                <div className={styles.cardAccent} />
+
                 <h3 className={styles.cardTitle}>
                   {service.title.split('\n').map((line, j) => (
                     <span key={j}>{line}<br /></span>
                   ))}
                 </h3>
+
                 <p className={styles.cardDesc}>{service.desc}</p>
+
                 <div className={styles.cardTags}>
                   {service.tags.map(tag => (
                     <span key={tag} className={styles.tag}>{tag}</span>
@@ -115,9 +117,6 @@ export default function Services() {
 
               {/* Arrow */}
               <div className={styles.cardArrow}>→</div>
-
-              {/* Border line */}
-              <div className={styles.cardBorderLine} />
             </div>
           ))}
         </div>
