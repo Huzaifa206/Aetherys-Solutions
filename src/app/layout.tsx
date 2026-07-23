@@ -31,7 +31,7 @@ export default function RootLayout({
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
         <meta name="theme-color" content="#0A0A0A" />
       </head>
-      <body style={{ overflowX: 'hidden', maxWidth: '100%', position: 'relative' }}>{children}</body>
+      <body style={{ overflowX: 'hidden', maxWidth: '100%', position: 'relative' }} suppressHydrationWarning>{children}</body>
     </html>
   );
 }
